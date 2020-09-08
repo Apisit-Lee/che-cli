@@ -55,7 +55,7 @@ function registerCommands(args) {
         .action(() => {
             program.outputHelp((info) => {
                 shell.echo(info);
-                shell.echo(chalk.bold.red('  Unknown command') + ' ' + chalk.rgb(230, 173, 8)(args.join(' ')) + chalk.bold.red('.'));
+                shell.echo(chalk.bold.red('  Unknown command') + ' ' + chalk.yellow(args.join(' ')) + chalk.bold.red('.'));
                 return '';
             });
         });
@@ -67,7 +67,7 @@ function registerCommands(args) {
 
 async function create(name = 'my-project') {
     shell.echo(chalk.blue(`Che CLI v${version}\n`));
-    shell.echo(`✨ Creating project in ${chalk.rgb(230, 173, 8)(path.resolve(`./${name}`))}.`);
+    shell.echo(`✨ Creating project in ${chalk.yellow(path.resolve(`./${name}`))}.`);
     /**
      * I. prompt 
      */
@@ -110,7 +110,7 @@ async function create(name = 'my-project') {
         shell.echo(chalk.bold.red('Error: fetch project files from git failed.'));
         shell.exit(1);
     }
-    shell.echo(`🎉  Successfully created project ${chalk.rgb(230, 173, 8)(name)}.`);
+    shell.echo(`🎉  Successfully created project ${chalk.yellow(name)}.`);
     shell.echo('👉  Get started with the following commands:');
     shell.echo('');
     shell.echo(chalk.gray(' $ ') + chalk.cyan(`cd ${name}`));
